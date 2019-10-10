@@ -35,19 +35,19 @@ func letterCombinations(digits string) []string {
 	if len(digits) == 0 {
 		return []string{}
 	}
-	kmap := make(map[string][]string)
-	kmap["2"] = []string{"a", "b", "c"}
-	kmap["3"] = []string{"d", "e", "f"}
-	kmap["4"] = []string{"g", "h", "i"}
-	kmap["5"] = []string{"j", "k", "l"}
-	kmap["6"] = []string{"m", "n", "o"}
-	kmap["7"] = []string{"p", "q", "r", "s"}
-	kmap["8"] = []string{"t", "u", "v"}
-	kmap["9"] = []string{"w", "x", "y", "z"}
+	var kmap [][]string
+	kmap = append(kmap, []string{"a", "b", "c"})
+	kmap = append(kmap, []string{"d", "e", "f"})
+	kmap = append(kmap, []string{"g", "h", "i"})
+	kmap = append(kmap, []string{"j", "k", "l"})
+	kmap = append(kmap, []string{"m", "n", "o"})
+	kmap = append(kmap, []string{"p", "q", "r", "s"})
+	kmap = append(kmap, []string{"t", "u", "v"})
+	kmap = append(kmap, []string{"w", "x", "y", "z"})
 
 	result := []string{""}
 	for _, value := range digits {
-		keys := kmap[string(value)]
+		keys := kmap[value-50]
 		var tmpResult []string
 		count := len(result)
 		for i := 0; i < count; i++ {

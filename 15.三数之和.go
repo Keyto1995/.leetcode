@@ -37,7 +37,7 @@ func threeSum(nums []int) [][]int {
 	sort.Ints(nums)
 
 	size := len(nums)
-	result := [][]int{}
+	result := make([][]int, 0)
 
 	for i := 0; i < len(nums)-2; i++ {
 		if i > 0 && nums[i] == nums[i-1] {
@@ -49,9 +49,10 @@ func threeSum(nums []int) [][]int {
 		}
 
 		for l, r := i+1, size-1; l < r; {
-			if nums[l]+nums[r]+nums[i] < 0 {
+			sum := nums[i] + nums[l] + nums[r]
+			if sum < 0 {
 				l++
-			} else if nums[l]+nums[r]+nums[i] > 0 {
+			} else if sum > 0 {
 				r--
 			} else {
 				result = append(result, []int{nums[i], nums[l], nums[r]})

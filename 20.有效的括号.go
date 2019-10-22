@@ -56,81 +56,33 @@
  */
 package main
 
-import (
-	"errors"
-)
-
 // @lc code=start
 func isValid(s string) bool {
-	stack := NewStack()
+	stack := make([]byte, len(s))
+	top := -1
 	for _, value := range s {
 		switch value {
 		case '(', '[', '{':
-			stack.Push(value)
+			top++
+			stack[top] = byte(value)
 		case ')':
-			last, err := stack.Pop()
-			if err != nil || last != '(' {
+			if top == -1 || stack[top] != '(' {
 				return false
 			}
+			top--
 		case ']':
-			last, err := stack.Pop()
-			if err != nil || last != '[' {
+			if top == -1 || stack[top] != '[' {
 				return false
 			}
+			top--
 		case '}':
-			last, err := stack.Pop()
-			if err != nil || last != '{' {
+			if top == -1 || stack[top] != '{' {
 				return false
 			}
+			top--
 		}
 	}
-	return stack.IsEmpty()
-
-}
-
-type Stack struct {
-	elements []interface{}
-}
-
-func NewStack() Stack {
-	stack := Stack{}
-	return stack
-}
-
-// 判断栈是否为空
-func (s *Stack) IsEmpty() bool {
-	return s.Size() == 0
-}
-
-// 入栈
-func (s *Stack) Push(data interface{}) {
-	// 把当前的元素放在栈顶的位置
-	s.elements = append(s.elements, data)
-}
-
-// 出栈
-func (s *Stack) Pop() (interface{}, error) {
-	// 判断是否是空栈
-	if s.IsEmpty() {
-		return nil, errors.New("Stack: This Stack is empty , pop error")
-	}
-	// 把栈顶的元素赋值给临时变量tmp
-	tmp := s.elements[s.Size()-1]
-
-	s.elements = s.elements[:s.Size()-1]
-
-	return tmp, nil
-}
-
-// 栈的元素的长度
-func (s *Stack) Size() int {
-	size := len(s.elements)
-	return size
-}
-
-// 清空栈
-func (s *Stack) Clear() {
-	s.elements = nil
+	return top == -1
 }
 
 // @lc code=end

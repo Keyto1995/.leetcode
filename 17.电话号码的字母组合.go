@@ -29,6 +29,7 @@
  * 尽管上面的答案是按字典序排列的，但是你可以任意选择答案输出的顺序。
  *
  */
+package leetcode
 
 // @lc code=start
 func letterCombinations(digits string) []string {

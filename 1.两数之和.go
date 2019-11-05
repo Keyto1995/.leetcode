@@ -26,6 +26,8 @@
  *
  *
  */
+package leetcode
+
 func twoSum(nums []int, target int) []int {
 	nmap := make(map[int]int)
 	result := make([]int, 2)

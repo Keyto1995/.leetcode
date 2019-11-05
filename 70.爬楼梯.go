@@ -38,16 +38,17 @@
  *
  *
  */
+package leetcode
 
 // @lc code=start
 func climbStairs(n int) int {
-    a, b, c := 0, 1, 0
-    for i := 0; i < n; i++ {
-        c = a + b
-        a = b
-        b = c
-    }
-    return c
+	a, b, c := 0, 1, 0
+	for i := 0; i < n; i++ {
+		c = a + b
+		a = b
+		b = c
+	}
+	return c
 }
-// @lc code=end
 
+// @lc code=end

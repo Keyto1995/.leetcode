@@ -30,6 +30,8 @@
  * 输出: 49
  *
  */
+package leetcode
+
 func maxArea(height []int) int {
 	maxarea := 0
 	l := 0

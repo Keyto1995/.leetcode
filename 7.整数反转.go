@@ -39,7 +39,7 @@
  * 0。
  *
  */
-package main
+package leetcode
 
 import "math"
 

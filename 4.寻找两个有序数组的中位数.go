@@ -36,7 +36,7 @@
  *
  *
  */
-package main
+package leetcode
 
 import "sort"
 

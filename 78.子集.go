@@ -33,27 +33,28 @@
  * ]
  *
  */
+package leetcode
 
 // @lc code=start
 func subsets(nums []int) [][]int {
-    count := len(nums)
-    var flags []int
-    for i := 0; i < count; i++ {
-        flags = append(flags, 1 << uint(i))
-    }
-    var result [][]int
-    count = 1 << uint(len(nums))
+	count := len(nums)
+	var flags []int
+	for i := 0; i < count; i++ {
+		flags = append(flags, 1<<uint(i))
+	}
+	var result [][]int
+	count = 1 << uint(len(nums))
 
-    for i := 0; i < count; i++ {
-        tmp := []int{}
-        for j, value := range flags {
-            if (i & value) != 0 {
-                tmp = append(tmp, nums[j])
-            }
-        }
-        result = append(result, tmp)
-    }
-    return result
+	for i := 0; i < count; i++ {
+		tmp := []int{}
+		for j, value := range flags {
+			if (i & value) != 0 {
+				tmp = append(tmp, nums[j])
+			}
+		}
+		result = append(result, tmp)
+	}
+	return result
 }
-// @lc code=end
 
+// @lc code=end

@@ -40,7 +40,7 @@
  * 你能不将整数转为字符串来解决这个问题吗？
  *
  */
-package main
+package leetcode
 
 // @lc code=start
 func isPalindrome(x int) bool {

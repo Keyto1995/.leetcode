@@ -31,14 +31,15 @@
  * 输出: 4
  *
  */
+package leetcode
 
 // @lc code=start
 func singleNumber(nums []int) int {
-    result := 0
-    for _, value := range nums {
-        result ^= value
-    }
-    return result
+	result := 0
+	for _, value := range nums {
+		result ^= value
+	}
+	return result
 }
-// @lc code=end
 
+// @lc code=end
